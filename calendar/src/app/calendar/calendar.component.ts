@@ -36,6 +36,6 @@ export class CalendarComponent{
 })
 
 constructor() {
-  console.log(this.firstDateOfActiveMonth())
+  console.log(this.daysOfMonth())
 }
 }
