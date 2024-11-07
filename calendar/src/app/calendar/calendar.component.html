@@ -15,5 +15,9 @@
         @for (weekDay of weekDays(); track $index)
           { <div class="calendar-weeks-grid-cell">{{weekDay}}</div>}
       </div>
+      <div class="calendar-grid">
+        @for(dayOfMonth of daysOfMonth(); track $index)
+        {<div [ngClass]={'calendar-grid-cell'}>{{dayOfMonth.day}}</div>
+      </div>
     </div>
   </div>
