@@ -16,7 +16,8 @@ import { CommonModule } from '@angular/common';
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
   styleUrl: './calendar.component.css',
-  standalone: true
+  standalone: true,
+  imports: [CommonModule]
 })
 
 export class CalendarComponent{

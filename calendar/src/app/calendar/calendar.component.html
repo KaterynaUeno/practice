@@ -17,7 +17,7 @@
       </div>
       <div class="calendar-grid">
         @for(dayOfMonth of daysOfMonth(); track $index)
-        {<div [ngClass]={'calendar-grid-cell'}>{{dayOfMonth.day}}</div>
+        {<div [ngClass]="{'calendar-grid-cell':true}">{{dayOfMonth.day}}</div>}
       </div>
     </div>
   </div>
