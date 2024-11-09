@@ -24,7 +24,7 @@
       <div class="schedule-headline">
         @if(activeDay(); as activeDay) {
           <div>{{activeDay.toLocaleString(DATE_MED)}}</div>
-        }
+        } @else { <div>Please select a day</div>}
       </div>
     </div>
   </div>
