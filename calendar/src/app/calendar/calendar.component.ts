@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 import { DateTime, Info, Interval } from 'luxon';
 import { CommonModule } from '@angular/common';
+import { Meetings } from './meetings.interface';
 
 
 
@@ -21,6 +22,9 @@ import { CommonModule } from '@angular/common';
 })
 
 export class CalendarComponent{
+
+  meetings: InputSignal<Meetings> = input.required();
+  activeDay: WritableSignal<DateTime | null> = signal(null);
   today: Signal<DateTime> = signal(DateTime.now());
   firstDateOfActiveMonth: WritableSignal<DateTime> = signal(this.today().startOf('month'));
   weekDays : Signal<string[]> = signal(Info.weekdays('long'));
@@ -35,6 +39,9 @@ export class CalendarComponent{
     return day.start;
   })
 })
+
+
+DATE_MED = DateTime.DATE_MED;
 
 constructor() {
   console.log(this.daysOfMonth())
