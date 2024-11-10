@@ -17,7 +17,11 @@
       </div>
       <div class="calendar-grid">
         @for(dayOfMonth of daysOfMonth(); track $index)
-        {<div [ngClass]="{'calendar-grid-cell':true}" (click)="activeDay.set(dayOfMonth)">{{dayOfMonth.day}}</div>}
+        {<div [ngClass]="{'calendar-grid-cell':true}"
+        (click)="activeDay.set(dayOfMonth)">
+        {{dayOfMonth.day}}
+      </div>
+    }
       </div>
     </div>
     <div class="schedule">
@@ -25,6 +29,16 @@
         @if(activeDay(); as activeDay) {
           <div>{{activeDay.toLocaleString(DATE_MED)}}</div>
         } @else { <div>Please select a day</div>}
+      </div>
+      <div>
+        @if(activeDay() && activeDayMeetings.length === 0) {
+          <div>No planeed meetings</div>
+        }
+        @if(activeDay() && activeDayMeetings.length > 0) {
+        @for (meeting of activeDayMeetings(); track $index) {
+          {{meeting}}
+        }
+        }
       </div>
     </div>
   </div>
