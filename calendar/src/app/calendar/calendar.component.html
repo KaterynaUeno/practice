@@ -6,9 +6,9 @@
         {{firstDateOfActiveMonth().year}}
       </div>
       <div class="calendar-headline-controls">
-        <div class="calendar-headline-control"><<</div>
-        <div class="calendar-headline-control calendar-headline-control-today">Today</div>
-          <div class="calendar-headline-control">>></div>
+        <div class="calendar-headline-control" (click)="goToPreviousMonth()"><<</div>
+        <div class="calendar-headline-control calendar-headline-control-today" (click)="stayToday()">Today</div>
+          <div class="calendar-headline-control" (click)="gotToNextMonth()">>></div>
       </div>
       </div>
       <div class="calendar-weeks-grid">
@@ -17,7 +17,9 @@
       </div>
       <div class="calendar-grid">
         @for(dayOfMonth of daysOfMonth(); track $index)
-        {<div [ngClass]="{'calendar-grid-cell':true}"
+        {<div [ngClass]="{'calendar-grid-cell':true, 'calendar-grid-cell-active': activeDay()?.toISODate() === dayOfMonth.toISODate(),
+          'calendar-grid-cell-inactive': firstDateOfActiveMonth().month !== dayOfMonth.month
+        }"
         (click)="activeDay.set(dayOfMonth)">
         {{dayOfMonth.day}}
       </div>

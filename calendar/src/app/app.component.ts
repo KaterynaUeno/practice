@@ -14,6 +14,7 @@ export class AppComponent {
   meetings = {
     '2024-11-08': ['Meeting 1', 'Meeting 2'],
     '2024-11-14': ['Meeting 3'],
-    '2024-11-22': ['Meeting 4', 'Meeting 5']
+    '2024-11-22': ['Meeting 4', 'Meeting 5'],
+    '2024-11-24': ['Meeting 4', 'Meeting 5']
   }
 }

@@ -52,44 +52,22 @@ export class CalendarComponent{
 
 DATE_MED = DateTime.DATE_MED;
 
+gotToNextMonth(): void {
+  this.firstDateOfActiveMonth.
+  set(this.firstDateOfActiveMonth().plus({ month: 1 }))
+}
 
-  // meetings: InputSignal<Meetings> = input.required();
-  // today: Signal<DateTime> = signal(DateTime.local());
-  // firstDayOfActiveMonth: WritableSignal<DateTime> = signal(
-  //   this.today().startOf('month'),
-  // );
-  // activeDay: WritableSignal<DateTime | null> = signal(null);
-  // weekDays: Signal<string[]> = signal(Info.weekdays('long'));
-  // daysOfMonth: Signal<DateTime[]> = computed(() => {
-  //   return Interval.fromDateTimes(
-  //     this.firstDayOfActiveMonth().startOf('week'),
-  //     this.firstDayOfActiveMonth().endOf('month').endOf('week'),
-  //   )
-  //     .splitBy({ day: 1 })
-  //     .map((d) => {
-  //       if (d.start === null) {
-  //         throw new Error('Wrong dates');
-  //       }
-  //       return d.start;
-  //     });
-  // });
-  // DATE_MED = DateTime.DATE_MED;
-
-  // activeDayMeetings: Signal<string[]> = computed(() => {
-  //   const activeDay = this.activeDay();
-  //   if (activeDay === null) {
-  //     return [];
-  //   }
-  //   const activeDayISO = activeDay.toISODate();
-
-  //   if (!activeDayISO) {
-  //     return [];
-  //   }
-
-  //   return this.meetings()[activeDayISO] ?? [];
-  // });
+goToPreviousMonth(): void {
+  this.firstDateOfActiveMonth.
+  set(this.firstDateOfActiveMonth().minus({ month: 1 }))
+}
 
 
+stayToday():void {
+  this.activeDay.set(this.today());
+  this.firstDateOfActiveMonth.set(this.today().startOf('month'));
+
+}
 
 constructor() {
   console.log(this.daysOfMonth())
