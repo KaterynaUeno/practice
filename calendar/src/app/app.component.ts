@@ -11,11 +11,9 @@ import { CalendarComponent } from './calendar/calendar.component';
 })
 export class AppComponent {
   title = 'calendar';
-
-
   meetings = {
-    '2024-01-10': ['Meeting 1', 'Meeting 2'],
-    '2024-01-15': ['Meeting 3'],
-    '2024-01-22': ['Meeting 4', 'Meeting 5']
+    '2024-11-01': ['Meeting 1', 'Meeting 2'],
+    '2024-11-02': ['Meeting 3'],
+    '2024-11-03': ['Meeting 4', 'Meeting 5']
   }
 }

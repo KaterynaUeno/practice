@@ -31,14 +31,14 @@
         } @else { <div>Please select a day</div>}
       </div>
       <div>
-        @if(activeDay() && activeDayMeetings.length === 0) {
+        @if(activeDay() && activeDayMeetings().length == 0) {
           <div>No planeed meetings</div>
         }
-        @if(activeDay() && activeDayMeetings.length > 0) {
+        @if(activeDay() && activeDayMeetings().length > 0) {
         @for (meeting of activeDayMeetings(); track $index) {
           {{meeting}}
         }
-        }
+      }
       </div>
     </div>
   </div>
